@@ -51,3 +51,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Use byebug debugger
+gem 'byebug', group: [:development, :test]
