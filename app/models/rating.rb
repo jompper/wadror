@@ -5,6 +5,7 @@ class Rating < ActiveRecord::Base
   validates :score, numericality: { greater_than_or_equal_to: 1,
                                     less_than_or_equal_to: 50,
                                     only_integer: true }
+  validates :beer_id, uniqueness: {scope: :user_id, message: 'has already been rated'}
 
   def to_s
     "#{beer.name} #{score}"
