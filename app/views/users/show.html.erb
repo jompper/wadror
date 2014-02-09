@@ -6,6 +6,10 @@
     No ratings
 <% else %>
     has made <%= pluralize(@user.ratings.count, 'rating') %>, average <%= @user.average_rating %>
+    <br>
+    favorite beer: <%= link_to @user.favorite_beer, @user.favorite_beer %>,
+    favorite style: <%= @user.favorite_style %>,
+    favorite brewery: <%= link_to @user.favorite_brewery, @user.favorite_brewery %>
 <% end %>
 </p>
 
@@ -22,16 +26,31 @@
 
 <% if !@user.ratings.empty? %>
   <h3>ratings</h3>
-  <ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Beer</th>
+        <th>Brewery</th>
+        <th>Score</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
     <% @user.ratings.each do |rating| %>
-      <li>
-        <%= rating %>
+      <tr>
+        <td><%= link_to rating.beer.name, rating.beer %></td>
+        <td><%= link_to rating.beer.brewery, rating.beer.brewery %></td>
+        <td><%= rating.score %></td>
+        <td>
         <% if @user == current_user %>
             <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-      </li>
+        </td>
+      </tr>
     <% end %>
-  </ul>
+    </tbody>
+  </table>
+  <br>
 <% end %>
 <% if @user == current_user %>
   <%= link_to 'Edit', edit_user_path(@user) %> |

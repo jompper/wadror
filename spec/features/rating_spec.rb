@@ -5,6 +5,7 @@ describe "Rating" do
   let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }
   let!(:beer1) { FactoryGirl.create :beer, name:"iso 3", brewery:brewery }
   let!(:beer2) { FactoryGirl.create :beer, name:"Karhu", brewery:brewery }
+  let!(:beer3) { FactoryGirl.create :beer, name:"Iso 5", brewery:brewery }
   let!(:user) { FactoryGirl.create :user }
 
   before :each do
@@ -48,6 +49,39 @@ describe "Rating" do
       expect(page).to have_content "iso 3"
       expect(page).to have_content "has made 1 rating"
     end
+
+
+
+    it "show favorite beer on profile page" do
+      user2 = FactoryGirl.create :user, username: "Jukka"
+      FactoryGirl.create :rating, beer_id:1, user: user
+      FactoryGirl.create :rating, beer_id:1, user: user2
+      FactoryGirl.create :rating, beer_id:2, user: user2
+
+      visit user_path(user)
+
+      expect(page).to have_content "favorite beer: iso 3"
+    end
+
+
+    it "show favorite style on profile page" do
+      FactoryGirl.create :rating, score:9, beer:beer1, user: user
+      FactoryGirl.create :rating, score:10, beer:beer2, user: user
+      FactoryGirl.create :rating, score:8, beer:beer3, user: user
+
+      visit user_path(user)
+
+      expect(page).to have_content "favorite style: #{beer2.style}"
+    end
+
+
+    it "show favorite brewery on profile page" do
+      FactoryGirl.create :rating, score:9, beer:beer1, user: user
+
+      visit user_path(user)
+      expect(page).to have_content "favorite brewery: #{brewery.name}"
+    end
+
 
     it "should be able to remove ratings" do
       FactoryGirl.create :rating, beer_id:1, user: user

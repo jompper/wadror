@@ -9,6 +9,6 @@ class Beer < ActiveRecord::Base
   validates :style, presence: true
 
   def to_s
-    "#{brewery.name} | #{name}"
+    "#{name} - #{brewery.name}"
   end
 end
