@@ -1,0 +1,5 @@
+require 'spec_helper'
+BeerClub
+BeerClubsController
+Membership
+MembershipsController

@@ -1,0 +1,15 @@
+language: ruby
+rvm:
+- 2.0.0
+script:
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: ebOVOnJRYz7UmolNFw2k7P+3dVImrwBsW69TTz3qsi7fhH5o4QCZcAAkOB2BdT+zPhf/eCHAj9DL/czOQBbFg6EfOw147Vak5iBR+pRbOfL/ZToL8XHZ4XxtALI8kQgZ2Y9mXAas7TA40TeJRpdUXF5bxJ1tZeW+G46pIZ/PoLI=
+  app: fierce-island-7245
+  on:
+    repo: jompper/wadror

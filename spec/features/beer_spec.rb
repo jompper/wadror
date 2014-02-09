@@ -1,0 +1,36 @@
+require 'spec_helper'
+
+describe "Beer" do
+  let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }
+
+  it "is saved with correct values" do
+    visit new_beer_path
+    fill_in('beer_name', with:'Iso 3')
+    select('Lager', from:'beer[style]')
+    select('Koff', from:'beer[brewery_id]')
+
+    expect{
+      click_button('Create Beer')
+    }.to change{Beer.count}.by(1)
+
+
+    expect(current_path).to eq(beers_path)
+    expect(page).to have_content "Iso 3"
+
+
+  end
+
+  it "is not saved with missing values" do
+    visit new_beer_path
+    select('Lager', from:'beer[style]')
+    select('Koff', from:'beer[brewery_id]')
+
+
+
+    expect{
+      click_button('Create Beer')
+    }.to change{Beer.count}.by(0)
+    expect(current_path).to eq(beers_path)
+    expect(page).to have_content "Name can't be blank"
+  end
+end
