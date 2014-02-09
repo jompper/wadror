@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_filter :ensure_that_signed_in
+
   def new
     # renderöi kirjautumissivun
   end

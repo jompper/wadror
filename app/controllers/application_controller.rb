@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   before_action :ensure_that_admin, only: [:destroy]
-
+  before_action :ensure_that_signed_in, except: [:index, :show]
 
   def current_user
     return nil if session[:user_id].nil?

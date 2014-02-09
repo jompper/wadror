@@ -4,11 +4,25 @@
   Number of ratings: <%= @ratings.count %>
 </p>
 
-<ul>
+<table>
+  <thead>
+    <tr>
+      <th>Beer</th>
+      <th>Score</th>
+      <th>Rater</th>
+    </tr>
+  </thead>
+  <tbody>
   <% @ratings.each do |rating| %>
-    <li><%= rating %> <%= link_to rating.user.username, rating.user %></li>
+    <tr>
+      <td><%= link_to rating.beer.name, rating.beer %></td>
+      <td><%= rating.score %></td>
+      <td><%= link_to rating.user.username, rating.user %></td>
+    </tr>
   <% end %>
-</ul>
+  </tbody>
+</table>
+<br/>
 <% if not current_user.nil? %>
     <%= link_to 'New rating', new_rating_path %>
 <% end %>

@@ -191,7 +191,7 @@
         1,
         null,
         1,
-        5,
+        3,
         null,
         null,
         null
@@ -572,7 +572,6 @@
       "/home/wadror/ror-git/ratebeer/app/controllers/beer_clubs_controller.rb": [
         1,
         1,
-        1,
         null,
         null,
         null,
@@ -653,14 +652,20 @@
         1,
         null,
         1,
+        1,
+        1,
         null,
         1,
-        90,
-        74,
+        93,
+        77,
         null,
         null,
         1,
-        4,
+        7,
+        null,
+        null,
+        1,
+        0,
         null,
         null,
         null
@@ -876,6 +881,8 @@
         1,
         1,
         null,
+        1,
+        null,
         null,
         null,
         1,
@@ -899,6 +906,7 @@
         null
       ],
       "/home/wadror/ror-git/ratebeer/app/controllers/users_controller.rb": [
+        1,
         1,
         1,
         null,
@@ -981,7 +989,7 @@
       ],
       "/home/wadror/ror-git/ratebeer/app/controllers/ratings_controller.rb": [
         1,
-        null,
+        1,
         1,
         1,
         null,
@@ -1170,6 +1178,6 @@
         null
       ]
     },
-    "timestamp": 1391971297
+    "timestamp": 1391973571
   }
 }
