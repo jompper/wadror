@@ -14,7 +14,16 @@
     <li><%= link_to member, member %></li>
   <% end %>
 </ul>
-<% if not current_user.nil? %>
+<% if current_user %>
+
+
+    <% if not @beer_club.users.include? current_user %>
+        <%= form_for(@membership) do |f| %>
+            <%= f.hidden_field :beer_club_id %>
+            <%= f.submit value:"join the club" %>
+        <% end %>
+        <br>
+    <% end %>
     <%= link_to 'Edit', edit_beer_club_path(@beer_club) %>
     <% if current_user.admin %>
         <%= link_to 'Destroy', @beer_club, method: :delete, data: { confirm: 'Are you sure?' } %>

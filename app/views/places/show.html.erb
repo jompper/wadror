@@ -1,0 +1,10 @@
+<h2><%= @place['name'] %></h2>
+<p><%= @place['street'] %></p>
+<p><%= @place['zip'] %> <%= @place['city'] %></p>
+<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=fi&amp;geocode=&amp;q=<%= @place['street'] %>,+<%= @place['city'] %>,+<%= @place['country'] %>&amp;ie=UTF8&amp;hnear=<%= @place['street'] %>,+<%= @place['city'] %>,+<%= @place['country'] %>&amp;t=m&amp;z=14&amp;output=embed"></iframe>
+<br />
+<small>
+  <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;q=<%= @place['street'] %>,+<%= @place['city'] %>,+<%= @place['country'] %>&amp;ie=UTF8&amp;hq=&amp;hnear=<%= @place['street'] %>,+<%= @place['city'] %>,+<%= @place['country'] %>&amp;t=m&amp;z=14" style="color:#0000FF;text-align:left">
+    Show larger map
+  </a>
+</small>

@@ -4,6 +4,7 @@ include OwnTestHelper
 describe "Beer" do
   let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }
   let!(:user) { FactoryGirl.create :user }
+  let!(:style) { FactoryGirl.create :style}
 
   before :each do
     sign_in(username:"Pekka", password:"Foobar1")
@@ -12,7 +13,7 @@ describe "Beer" do
   it "is saved with correct values" do
     visit new_beer_path
     fill_in('beer_name', with:'Iso 3')
-    select('Lager', from:'beer[style]')
+    select('Lager', from:'beer[style_id]')
     select('Koff', from:'beer[brewery_id]')
 
     expect{
@@ -28,7 +29,7 @@ describe "Beer" do
 
   it "is not saved with missing values" do
     visit new_beer_path
-    select('Lager', from:'beer[style]')
+    select('Lager', from:'beer[style_id]')
     select('Koff', from:'beer[brewery_id]')
 
 

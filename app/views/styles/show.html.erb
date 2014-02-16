@@ -1,0 +1,36 @@
+<p>
+  <strong>Name:</strong>
+  <%= @style.name %>
+</p>
+
+<p>
+  <%= @style.description %>
+</p>
+<br>
+<% if not @style.beers.empty? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Beer</th>
+          <th>Brewery</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @style.beers.each do |beer| %>
+            <tr>
+              <td><%= link_to beer.name, beer %></td>
+              <td><%= link_to beer.brewery, beer.brewery %></td>
+            </tr>
+        <%end%>
+      </tbody>
+    </table>
+    <br>
+<%end%>
+
+<% if current_user %>
+    <%= link_to 'Edit', edit_style_path(@style) %>
+    <br>
+    <%= link_to 'Destroy', @style, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br>
+<% end %>
+<%= link_to 'Back', styles_path %>
