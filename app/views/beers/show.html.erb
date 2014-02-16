@@ -5,12 +5,12 @@
 
 <p>
   <strong>Style:</strong>
-  <%= @beer.style %>
+  <%= link_to @beer.style, @beer.style  %>
 </p>
 
 <p>
   <strong>Brewery:</strong>
-  <%= @beer.brewery.name %>
+  <%= link_to @beer.brewery, @beer.brewery %>
 </p>
 
 <p>
