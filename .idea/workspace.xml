@@ -94,19 +94,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="breweries_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="breweries_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/breweries_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="10" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="1410">
+            <state line="54" column="12" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.31338027" vertical-offset="543" max-vertical-offset="1395">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="brewery.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="brewery.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/brewery.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="13" selection-start="746" selection-end="746" vertical-scroll-proportion="0.45774648" vertical-offset="0" max-vertical-offset="852">
+            <state line="26" column="13" selection-start="746" selection-end="746" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
               <folding />
             </state>
           </provider>
@@ -1293,16 +1293,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/breweries_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/brewery.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="10" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="1410">
+        <state line="26" column="13" selection-start="746" selection-end="746" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/brewery.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/breweries_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="13" selection-start="746" selection-end="746" vertical-scroll-proportion="0.45774648" vertical-offset="0" max-vertical-offset="852">
+        <state line="54" column="12" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.31338027" vertical-offset="543" max-vertical-offset="1395">
           <folding />
         </state>
       </provider>
