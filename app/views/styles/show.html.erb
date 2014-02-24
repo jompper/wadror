@@ -1,14 +1,11 @@
-<p>
-  <strong>Name:</strong>
-  <%= @style.name %>
-</p>
+<h1><%= @style.name %></h1>
 
 <p>
   <%= @style.description %>
 </p>
 <br>
 <% if not @style.beers.empty? %>
-    <table>
+    <table class="table table-hover">
       <thead>
         <tr>
           <th>Beer</th>
@@ -27,10 +24,5 @@
     <br>
 <%end%>
 
-<% if current_user %>
-    <%= link_to 'Edit', edit_style_path(@style) %>
-    <br>
-    <%= link_to 'Destroy', @style, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <br>
-<% end %>
+<%= edit_and_destroy_buttons(@style) %>
 <%= link_to 'Back', styles_path %>

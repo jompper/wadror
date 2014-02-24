@@ -9,6 +9,9 @@ class Brewery < ActiveRecord::Base
                                   only_integer: true}
   validate :year_cannot_be_in_the_future
 
+  scope :active, -> { where active:true }
+  scope :retired, -> { where active:[nil,false] }
+
   def year_cannot_be_in_the_future
     errors.add(:year, "can't be int the future") if
         !year.blank? and year > Time.now.year
@@ -28,5 +31,10 @@ class Brewery < ActiveRecord::Base
 
   def to_s
     "#{name} (#{year})"
+  end
+
+  def self.top(n)
+    sorted_by_rating_in_desc_order = Brewery.all.sort_by{ |b| -(b.average_rating||0) }
+    sorted_by_rating_in_desc_order.first(n)
   end
 end

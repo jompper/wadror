@@ -7,8 +7,10 @@ class Rating < ActiveRecord::Base
                                     only_integer: true }
   validates :beer_id, uniqueness: {scope: :user_id, message: 'has already been rated'}
 
+  scope :recent, -> {last(5)}
+
   def to_s
-    "#{beer.name} #{score}"
+    "#{beer.name} (#{score} - #{user.username})"
   end
 
 end

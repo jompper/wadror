@@ -1,10 +1,23 @@
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
   before_action :ensure_that_signed_in, except: [:index, :show]
+  skip_before_filter :ensure_that_signed_in, only: [:list]
+
   # GET /breweries
   # GET /breweries.json
   def index
-    @breweries = Brewery.all
+    order = params[:order] || 'name'
+    case order
+      when 'year' then
+        @active_breweries = Brewery.active.order(:year)
+        @retired_breweries = Brewery.retired.order(:year)
+      else
+        @active_breweries = Brewery.active.order(:name)
+        @retired_breweries = Brewery.retired.order(:name)
+    end
+  end
+
+  def list
   end
 
   # GET /breweries/1
@@ -69,6 +82,6 @@ class BreweriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def brewery_params
-      params.require(:brewery).permit(:name, :year)
+      params.require(:brewery).permit(:name, :year, :active)
     end
 end

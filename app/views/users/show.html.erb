@@ -5,7 +5,7 @@
 <% if @user.ratings.empty? %>
     No ratings
 <% else %>
-    has made <%= pluralize(@user.ratings.count, 'rating') %>, average <%= @user.average_rating %>
+    has made <%= pluralize(@user.ratings.count, 'rating') %>, average <%= round @user.average_rating %>
     <br>
     favorite beer: <%= link_to @user.favorite_beer, @user.favorite_beer %>,
     favorite style: <%= @user.favorite_style %>,
@@ -26,7 +26,7 @@
 
 <% if !@user.ratings.empty? %>
   <h3>ratings</h3>
-  <table>
+  <table class="table table-hover">
     <thead>
       <tr>
         <th>Beer</th>

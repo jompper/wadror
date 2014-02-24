@@ -44,7 +44,13 @@ gem "rails-settings-cached", "0.3.1"
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'jquery-turbolinks'
 
+gem 'bootstrap-sass'
+
+group :development do
+  gem 'rails_layout'
+end
 
 
 group :production do

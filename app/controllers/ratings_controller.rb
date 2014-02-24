@@ -1,7 +1,11 @@
 class RatingsController < ApplicationController
   skip_before_filter :ensure_that_admin, :only => [:destroy]
   def index
-    @ratings = Rating.all
+    @top_users = User.top 5
+    @top_breweries = Brewery.top 3
+    @top_beers = Beer.top 3
+    @top_styles = Style.top 3
+    @last_ratings = Rating.recent
   end
 
   def new
